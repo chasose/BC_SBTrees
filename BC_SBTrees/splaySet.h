@@ -10,14 +10,23 @@ struct my_node_splay : public bs_set_base_hook<> {
     Key value;
     Data data;
     my_node_splay(Key v, Data data) : value(v), data(data) {}
+};
 
-    bool operator<(const my_node_splay& other) const {
-        return value < other.value;
+template <typename Key, typename Data>
+struct key_comparator_splay {
+    bool operator()(const my_node_splay<Key, Data>& node1, const my_node_splay<Key, Data>& node2) const {
+        return node1.value < node2.value;
+    }
+    bool operator()(const Key& key1, const my_node_splay<Key, Data>& node2) const {
+        return key1 < node2.value;
+    }
+    bool operator()(const my_node_splay<Key, Data>& node1, const Key& key2) const {
+        return node1.value < key2;
     }
 };
 
 template <typename Key, typename Data>
-using my_tree_splay = splay_set<my_node_splay<Key, Data>>;
+using my_tree_splay = splay_set<my_node_splay<Key, Data>, compare<key_comparator_splay<Key, Data>>>;
 
 template <typename Key, typename Data>
 class splaySet
@@ -39,6 +48,17 @@ splaySet<Key, Data>::splaySet() {
 }
 
 template <typename Key, typename Data>
+splaySet<Key, Data>::~splaySet() {
+    auto it = tree_->begin();
+    while (it != tree_->end()) {
+        auto node = &*it;
+        it = tree_->erase(it);
+        delete node;
+    }
+    delete tree_;
+}
+
+template <typename Key, typename Data>
 void splaySet<Key, Data>::insert(Key key, Data data)
 {
     my_node_splay<Key, Data>* node1 = new my_node_splay<Key, Data>(key, data);
@@ -47,9 +67,7 @@ void splaySet<Key, Data>::insert(Key key, Data data)
 
 template <typename Key, typename Data>
 const my_node_splay<Key, Data>* splaySet<Key, Data>::find(Key key) const {
-
-    my_node_splay<Key, Data> search_node(key, Data()); // create a search node with the given key
-    auto it = tree_->find(search_node); // pass the search node to find()
+    auto it = tree_->find(key, key_comparator_splay<Key, Data>());
     if (it != tree_->end()) {
         return &(*it);
     }
@@ -60,17 +78,12 @@ const my_node_splay<Key, Data>* splaySet<Key, Data>::find(Key key) const {
 
 template <typename Key, typename Data>
 void splaySet<Key, Data>::remove(Key key) {
-    my_node_splay<Key, Data> search_node(key, Data()); // create a search node with the given key
-    auto it = tree_->find(search_node); // pass the search node to find()
-    if (it == tree_->end()) {
-        return; // Node not found, do nothing
+    auto node = find(key);
+    if (node != nullptr)
+    {
+        tree_->erase(*node); // remove node from tree
+        delete node; // delete the node object
     }
-
-    // Node found, remove it
-    tree_->erase(it);
-
-    // Now, rebalance the tree to maintain the AVL property
-    tree_->rebalance();
 }
 
 template <typename Key, typename Data>

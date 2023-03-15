@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="avlSet.h" />
+    <ClInclude Include="heap_monitor.h" />
     <ClInclude Include="splaySet.h" />
     <ClInclude Include="sgSet.h" />
   </ItemGroup>
