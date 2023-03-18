@@ -3,7 +3,9 @@
 #include <fstream>
 #include <iostream>
 #include <chrono>
-
+#include <vector>
+#include <algorithm>
+#include <random>
 
 template<typename TreeType>
 class TreeTester
@@ -45,10 +47,24 @@ void TreeTester<TreeType>::setNumberOfReplications(int number)
 template<typename TreeType>
 class TreeAnalyzer : public TreeTester<TreeType>
 {
+
+
+private:
+	std::vector<typename TreeType::key_type>* vector_ = 0;
+
+	void clearVector() {
+		this->vector_->resize(0);
+	};
+
 public:
 	TreeAnalyzer(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name) 
-		: TreeTester<TreeType>(tree, repNumb, stepSize, stepCount, name) {
+		: TreeTester<TreeType>(tree, repNumb, stepSize, stepCount, name) 
+	{
+		this->vector_ = new std::vector<typename TreeType::key_type>();
 	};
+	~TreeAnalyzer() {
+		delete this->vector_;
+	}
 	// Inherited via TreeTester
 	using TreeTester<TreeType>::name_;
 	using TreeTester<TreeType>::numberOfReplications_;
@@ -56,8 +72,10 @@ public:
 	using TreeTester<TreeType>::stepSize_;
 	using TreeTester<TreeType>::stepCount_;
 	
-	virtual void prepare() = 0;
-	virtual void execute() = 0;
+
+
+	virtual std::vector<typename TreeType::key_type> prepare() = 0;
+	virtual void execute(std::vector<typename TreeType::key_type>* vector) = 0;
 	virtual void clear() = 0;
 	virtual void analyze() override
 	{
@@ -72,12 +90,13 @@ public:
 				auto replicationsDuration = std::chrono::microseconds(0);
 				while (repNum > 0)
 				{
-					this->prepare();
+					*this->vector_ = this->prepare();
 					auto startTime = std::chrono::high_resolution_clock::now();
-					this->execute();
+					this->execute(this->vector_);
 					auto endTime = std::chrono::high_resolution_clock::now();
 					
 					this->clear();
+					this->clearVector();
 					auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
 					replicationsDuration += duration;
 				
@@ -93,6 +112,7 @@ public:
 			std::cout << "Error opening file: " << filename << std::endl;
 		}
 	}
+
 };
 
 

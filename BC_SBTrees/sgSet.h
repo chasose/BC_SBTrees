@@ -34,6 +34,7 @@ template <typename Key, typename Data>
 class sgSet
 {
 public:
+    using key_type = Key;
     sgSet(float alpha = 0.75);
     ~sgSet();
     void insert(Key key, Data data);

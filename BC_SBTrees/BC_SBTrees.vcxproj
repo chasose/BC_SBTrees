@@ -146,7 +146,10 @@
     <ClCompile Include="BC_SBTrees.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="InsertTester.h" />
+    <ClInclude Include="InsertTesterLinearINT.h" />
+    <ClInclude Include="InsertTesterLinearString.h" />
+    <ClInclude Include="InsertTesterRNG_INT.h" />
+    <ClInclude Include="InsertTesterRNG_STRING.h" />
     <ClInclude Include="TreeTester.h" />
     <ClInclude Include="avlSet.h" />
     <ClInclude Include="heap_monitor.h" />

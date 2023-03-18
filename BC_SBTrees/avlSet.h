@@ -32,6 +32,7 @@ template <typename Key, typename Data>
 class avlSet
 {
 public:
+    using key_type = Key;
     avlSet();
     ~avlSet();
     void insert(Key key, Data data);

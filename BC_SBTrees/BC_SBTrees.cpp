@@ -8,100 +8,94 @@
 #include <iostream>
 #include <string>
 #include <chrono>
-#include "InsertTester.h"
+#include "InsertTesterLinearINT.h"
+#include "InsertTesterLinearString.h"
+#include "InsertTesterRNG_INT.h"
+#include "InsertTesterRNG_STRING.h"
 
 using namespace std;
 
 int main() {
     initHeapMonitor();
+    //LINEAR
+    //sgSET
+    //sgSet<string, int>* sg_treeS = new sgSet<string, int>();
+    //sgSet<int, int>* sg_treeI = new sgSet<int, int>();
+    //InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 10, 250, "pokusSGString.csv");
+    //InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 10, 250, "pokusSGINT.csv");
+    //testerSGI->analyze();
+    //testerSGS->analyze();
 
-    /*avlSet<int,int>* avl_tree = new avlSet<int, int>();
-    splaySet<int, int>* splay_tree = new splaySet<int, int>();*/
-    
+    //delete sg_treeS;
+    //delete sg_treeI;
+    //delete testerSGI;
+    //delete testerSGS;
+    ////avlSET
+    //avlSet<string, int>* avl_treeS = new avlSet<string, int>();
+    //avlSet<int, int>* avl_treeI = new avlSet<int, int>();
+    //InsertTesterLinearString<avlSet<string, int>>* testerAVLS = new InsertTesterLinearString<avlSet<string, int>>(avl_treeS, 50, 10, 250, "pokusAVLString.csv");
+    //InsertTesterLinearINT<avlSet<int, int>>* testerAVLI = new InsertTesterLinearINT<avlSet<int, int>>(avl_treeI, 50, 10, 250, "pokusAVLINT.csv");
+    //testerAVLI->analyze();
+    //testerAVLS->analyze();
 
-   /* sg_tree->insert(1, 1);
-    sg_tree->insert(2, 2);
-    sg_tree->insert(3, 3);
-    sg_tree->insert(4, 1);
-    sg_tree->insert(5, 2);
-    sg_tree->insert(6, 3);
+    //delete avl_treeS;
+    //delete avl_treeI;
+    //delete testerAVLI;
+    //delete testerAVLS;
+    ////splaySET
+    //splaySet<string, int>* splay_treeS = new splaySet<string, int>();
+    //splaySet<int, int>* splay_treeI = new splaySet<int, int>();
+    //InsertTesterLinearString<splaySet<string, int>>* testerSPLAYS = new InsertTesterLinearString<splaySet<string, int>>(splay_treeS, 50, 10, 250, "pokusSPLAYString.csv");
+    //InsertTesterLinearINT<splaySet<int, int>>* testerSPLAYI = new InsertTesterLinearINT<splaySet<int, int>>(splay_treeI, 50, 10, 250, "pokusSPLAYINT.csv");
+    //testerSPLAYI->analyze();
+    //testerSPLAYS->analyze();
+    //
 
-    avl_tree->insert(1, 1);
-    avl_tree->insert(2, 2);
-    avl_tree->insert(3, 3);
-    
-    splay_tree->insert(1, 1);
-    splay_tree->insert(2, 2);
-    splay_tree->insert(3, 3);
+    //delete splay_treeS;
+    //delete splay_treeI;
+    //delete testerSPLAYS;
+    //delete testerSPLAYI;
 
-    const my_node_sg<int, int>* najdeny;
-    najdeny = sg_tree->find(1);
-    if (najdeny == nullptr)
-    {
-        cout << "nebol najdeny" << endl;
-    }
-    else
-    {
-        cout << "bol najdeny a ma hodnotu "<< najdeny->data << endl;
-    }
-    avl_tree->listAllElements();
-    avl_tree->remove(2);
-    cout << "" <<endl;
-    avl_tree->listAllElements();
 
-    splay_tree->listAllElements();
-    splay_tree->remove(2);
-    cout << "" << endl;
-    splay_tree->listAllElements();
+    //RANDOM
+    //sgSET
+    sgSet<string, int>* sg_treeS = new sgSet<string, int>();
+    sgSet<int, int>* sg_treeI = new sgSet<int, int>();
+    InsertTesterRNG_STRING<sgSet<string, int>>* testerSGS = new InsertTesterRNG_STRING<sgSet<string, int>>(sg_treeS, 50, 10, 250, "rngSGString.csv");
+    InsertTesterRNG_INT<sgSet<int, int>>* testerSGI = new InsertTesterRNG_INT<sgSet<int, int>>(sg_treeI, 50, 10, 250, "rngSGINT.csv");
+    testerSGI->analyze();
+    testerSGS->analyze();
 
-    sg_tree->listAllElements();
-    sg_tree->remove(10);
-    cout << "" << endl;
-    sg_tree->listAllElements();*/
+    delete sg_treeS;
+    delete sg_treeI;
+    delete testerSGI;
+    delete testerSGS;
+    //avlSET
+    avlSet<string, int>* avl_treeS = new avlSet<string, int>();
+    avlSet<int, int>* avl_treeI = new avlSet<int, int>();
+    InsertTesterRNG_STRING<avlSet<string, int>>* testerAVLS = new InsertTesterRNG_STRING<avlSet<string, int>>(avl_treeS, 50, 10, 250, "rngAVLString.csv");
+    InsertTesterRNG_INT<avlSet<int, int>>* testerAVLI = new InsertTesterRNG_INT<avlSet<int, int>>(avl_treeI, 50, 10, 250, "rngAVLINT.csv");
+    testerAVLI->analyze();
+    testerAVLS->analyze();
 
-    /*std::string filename = "output2.csv";
-    std::ofstream outputFile(filename);
+    delete avl_treeS;
+    delete avl_treeI;
+    delete testerAVLI;
+    delete testerAVLS;
+    //splaySET
+    splaySet<string, int>* splay_treeS = new splaySet<string, int>();
+    splaySet<int, int>* splay_treeI = new splaySet<int, int>();
+    InsertTesterRNG_STRING<splaySet<string, int>>* testerSPLAYS = new InsertTesterRNG_STRING<splaySet<string, int>>(splay_treeS, 50, 10, 250, "rngSPLAYString.csv");
+    InsertTesterRNG_INT<splaySet<int, int>>* testerSPLAYI = new InsertTesterRNG_INT<splaySet<int, int>>(splay_treeI, 50, 10, 250, "rngSPLAYINT.csv");
+    testerSPLAYI->analyze();
+    testerSPLAYS->analyze();
 
-    if (!outputFile.is_open()) {
-        std::cout << "Error opening file: " << filename << std::endl;
-        return 1;
-    }*/
-    
-    //for (int a = 1; a < 1000; a++)
-    //{
-    //    sgSet<int, int>* splay_tree = new sgSet<int, int>();
 
-    //    auto startTime = std::chrono::high_resolution_clock::now();
+    delete splay_treeS;
+    delete splay_treeI;
+    delete testerSPLAYS;
+    delete testerSPLAYI;
 
-    //    // Insert data into tree
-    //    for (int i = 0; i < 10*a; i=i+1)
-    //    {
-    //        splay_tree->insert(i, i + 1);
-    //    }
 
-    //    // Record end time
-    //    auto endTime = std::chrono::high_resolution_clock::now();
-    //    int dataSize = a * 10;
-    //    // Calculate duration in microseconds
-    //    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
-    //    cout << "size is: " << dataSize << endl;
-    //    // Write tree size and duration to CSV file
-    //    delete splay_tree;
-    //    outputFile << dataSize << ";" << duration.count() << std::endl;
-    //}
-    //outputFile.close();
-    
-    sgSet<int, int>* sg_tree = new sgSet<int, int>();
-    avlSet<int, int>* avl_tree = new avlSet<int, int>();
-    splaySet<int, int>* splay_tree = new splaySet<int, int>();
-    InsertTester<sgSet<int, int>>* testerSG = new InsertTester<sgSet<int, int>>(sg_tree, 50, 10, 500, "pokusSG2.csv");
-    testerSG->analyze();
-    delete testerSG;
-    InsertTester<avlSet<int, int>>* testerAVL = new InsertTester<avlSet<int, int>>(avl_tree, 50, 10, 500, "pokusAV2L.csv");
-    testerAVL->analyze();
-    delete testerAVL;
-    InsertTester<splaySet<int, int>>* testerSPLAY = new InsertTester<splaySet<int, int>>(splay_tree, 50, 10, 500, "pokusSPLAY2.csv");
-    testerSPLAY->analyze();
-    delete testerSPLAY;
     return 0;
 }

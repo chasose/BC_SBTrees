@@ -32,6 +32,7 @@ template <typename Key, typename Data>
 class splaySet
 {
 public:
+    using key_type = Key;
     splaySet();
     ~splaySet();
     void insert(Key key, Data data);

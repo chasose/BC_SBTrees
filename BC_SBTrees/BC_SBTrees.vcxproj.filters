@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Linear">
+      <UniqueIdentifier>{5828f2f3-884d-4e33-8e9a-2c8c0b44cdc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Random">
+      <UniqueIdentifier>{585d4fcc-399c-4e14-b380-52aed8a60c82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BC_SBTrees.cpp">
@@ -35,8 +41,17 @@
     <ClInclude Include="TreeTester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InsertTester.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="InsertTesterLinearINT.h">
+      <Filter>Header Files\Linear</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertTesterLinearString.h">
+      <Filter>Header Files\Linear</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertTesterRNG_INT.h">
+      <Filter>Header Files\Random</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertTesterRNG_STRING.h">
+      <Filter>Header Files\Random</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
