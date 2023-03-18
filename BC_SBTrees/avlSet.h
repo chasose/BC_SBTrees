@@ -37,6 +37,7 @@ public:
     void insert(Key key, Data data);
     const my_node_avl<Key, Data>* find(Key key) const;
     void remove(Key key);
+    void clear();
     void listAllElements();
 private:
     my_tree<Key, Data>* tree_;
@@ -86,6 +87,17 @@ void avlSet<Key, Data>::remove(Key key) {
         tree_->erase(*node); // remove node from tree
         delete node; // delete the node object
         tree_->rebalance();
+    }
+}
+
+template<typename Key, typename Data>
+inline void avlSet<Key, Data>::clear()
+{
+    auto it = tree_->begin();
+    while (it != tree_->end()) {
+        auto node = &*it;
+        it = tree_->erase(it);
+        delete node;
     }
 }
 

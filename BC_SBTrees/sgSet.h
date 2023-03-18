@@ -11,9 +11,6 @@ struct my_node_sg : public bs_set_base_hook<> {
     Data data;
     my_node_sg(Key v, Data data) : value(v), data(data) {}
 
-    /*bool operator<(const my_node_sg& other) const {
-        return value < other.value;
-    }*/
 };
 
 template <typename Key, typename Data>
@@ -42,6 +39,7 @@ public:
     void insert(Key key, Data data);
     const my_node_sg<Key, Data>* find(Key key) const;
     void remove(Key key);
+    void clear();
     void listAllElements();
 private:
     my_tree_sg<Key, Data>* tree_;
@@ -94,6 +92,17 @@ void sgSet<Key, Data>::remove(Key key) {
     }
     
 
+}
+
+template<typename Key, typename Data>
+inline void sgSet<Key, Data>::clear()
+{
+    auto it = tree_->begin();
+    while (it != tree_->end()) {
+        auto node = &*it;
+        it = tree_->erase(it);
+        delete node;
+    }
 }
 
 template <typename Key, typename Data>
