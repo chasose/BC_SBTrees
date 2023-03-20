@@ -12,6 +12,8 @@
 #include "InsertTesterLinearString.h"
 #include "InsertTesterRNG_INT.h"
 #include "InsertTesterRNG_STRING.h"
+#include "FindTesterLinearINT.h"
+#include "FindTesterLinearString.h"
 
 using namespace std;
 
@@ -70,6 +72,8 @@ int main() {
     delete sg_treeI;
     delete testerSGI;
     delete testerSGS;
+
+    FindTesterLinearString<sgSet<string, int>>* tessd = new FindTesterLinearString<sgSet<string,int>>(sg_treeS,1,1,1,"asdff");
     //avlSET
     avlSet<string, int>* avl_treeS = new avlSet<string, int>();
     avlSet<int, int>* avl_treeI = new avlSet<int, int>();

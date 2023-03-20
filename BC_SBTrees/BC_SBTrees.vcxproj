@@ -146,6 +146,8 @@
     <ClCompile Include="BC_SBTrees.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FindTesterLinearINT.h" />
+    <ClInclude Include="FindTesterLinearString.h" />
     <ClInclude Include="InsertTesterLinearINT.h" />
     <ClInclude Include="InsertTesterLinearString.h" />
     <ClInclude Include="InsertTesterRNG_INT.h" />
