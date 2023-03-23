@@ -77,5 +77,11 @@
     <ClInclude Include="FindTesterLinearString.h">
       <Filter>Header Files\Linear\Find</Filter>
     </ClInclude>
+    <ClInclude Include="RemoveTesterLinearINT.h">
+      <Filter>Header Files\Linear\Remove</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveTesterLinearString.h">
+      <Filter>Header Files\Linear\Remove</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

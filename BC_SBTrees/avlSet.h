@@ -36,7 +36,7 @@ public:
     avlSet();
     ~avlSet();
     void insert(Key key, Data data);
-    const my_node_avl<Key, Data>* find(Key key) const;
+    my_node_avl<Key, Data>* find(Key key) ;
     void remove(Key key);
     void clear();
     void listAllElements();
@@ -68,7 +68,7 @@ void avlSet<Key, Data>::insert(Key key, Data data)
 }
 
 template <typename Key, typename Data>
-const my_node_avl<Key, Data>* avlSet<Key, Data>::find(Key key) const {
+ my_node_avl<Key, Data>* avlSet<Key, Data>::find(Key key)  {
 
     auto it = tree_->find(key, key_comparator_avl<Key, Data>());
     if (it != tree_->end()) {
@@ -85,8 +85,8 @@ void avlSet<Key, Data>::remove(Key key) {
     auto node = find(key);
     if (node != nullptr)
     {
-        tree_->erase(*node); // remove node from tree
-        delete node; // delete the node object
+        tree_->erase(*node); 
+        delete node;
         tree_->rebalance();
     }
 }

@@ -36,7 +36,7 @@ public:
     splaySet();
     ~splaySet();
     void insert(Key key, Data data);
-    const my_node_splay<Key, Data>* find(Key key) const;
+    my_node_splay<Key, Data>* find(Key key);
     void remove(Key key);
     void clear();
     void listAllElements();
@@ -68,7 +68,7 @@ void splaySet<Key, Data>::insert(Key key, Data data)
 }
 
 template <typename Key, typename Data>
-const my_node_splay<Key, Data>* splaySet<Key, Data>::find(Key key) const {
+my_node_splay<Key, Data>* splaySet<Key, Data>::find(Key key) {
     auto it = tree_->find(key, key_comparator_splay<Key, Data>());
     if (it != tree_->end()) {
         return &(*it);
@@ -83,8 +83,8 @@ void splaySet<Key, Data>::remove(Key key) {
     auto node = find(key);
     if (node != nullptr)
     {
-        tree_->erase(*node); // remove node from tree
-        delete node; // delete the node object
+        tree_->erase(*node);
+        delete node;
     }
 }
 

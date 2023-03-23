@@ -15,8 +15,8 @@ public:
     // Inherited via TreeAnalyzer
     virtual std::vector<typename TreeType::key_type> prepare() override
     {
-        std::string s = "a"; // initial string
-        int iterations = stepSize_ * currentStep_; // number of iterations
+        std::string s = "a";
+        int iterations = stepSize_ * currentStep_;
         std::vector<typename TreeType::key_type> vector_;
         for (int i = 0; i < iterations; ++i)
         {

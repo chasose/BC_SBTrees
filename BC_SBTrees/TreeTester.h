@@ -90,6 +90,7 @@ public:
 				auto replicationsDuration = std::chrono::microseconds(0);
 				while (repNum > 0)
 				{
+					this->clear();
 					*this->vector_ = this->prepare();
 					auto startTime = std::chrono::high_resolution_clock::now();
 					this->execute(this->vector_);

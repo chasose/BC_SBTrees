@@ -38,7 +38,7 @@ public:
     sgSet(float alpha = 0.75);
     ~sgSet();
     void insert(Key key, Data data);
-    const my_node_sg<Key, Data>* find(Key key) const;
+    my_node_sg<Key, Data>* find(Key key);
     void remove(Key key);
     void clear();
     void listAllElements();
@@ -49,7 +49,14 @@ private:
 template <typename Key, typename Data>
 sgSet<Key, Data>::sgSet(float alpha) {
     tree_ = new my_tree_sg<Key, Data>();
-    tree_->balance_factor(alpha);
+    if (alpha > 1 || alpha < 0.5)
+    {
+        tree_->balance_factor(0.75);
+    }
+    else {
+        tree_->balance_factor(alpha);
+    }
+    
 }
 
 template <typename Key, typename Data>
@@ -71,10 +78,10 @@ void sgSet<Key, Data>::insert(Key key, Data data)
 }
 
 template <typename Key, typename Data>
-const my_node_sg<Key, Data>* sgSet<Key, Data>::find(Key key) const {
+my_node_sg<Key, Data>* sgSet<Key, Data>::find(Key key) {
 
     auto cmp = tree_->value_comp();
-    auto it = tree_->find(key,key_comparator_sg<Key,Data>()); // pass the search node to find()
+    auto it = tree_->find(key,key_comparator_sg<Key,Data>());
     if (it != tree_->end()) {
         return &(*it);
     }
@@ -88,8 +95,8 @@ void sgSet<Key, Data>::remove(Key key) {
     auto node = find(key);
     if (node != nullptr)
     {
-        tree_->erase(*node); // remove node from tree
-        delete node; // delete the node object
+        tree_->erase(*node);
+        delete node;
     }
     
 
