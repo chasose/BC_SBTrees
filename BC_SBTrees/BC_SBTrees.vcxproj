@@ -150,12 +150,16 @@
   <ItemGroup>
     <ClInclude Include="FindTesterLinearINT.h" />
     <ClInclude Include="FindTesterLinearString.h" />
+    <ClInclude Include="FindTesterRNG_INT.h" />
+    <ClInclude Include="FindTesterRNG_String.h" />
     <ClInclude Include="InsertTesterLinearINT.h" />
     <ClInclude Include="InsertTesterLinearString.h" />
     <ClInclude Include="InsertTesterRNG_INT.h" />
     <ClInclude Include="InsertTesterRNG_STRING.h" />
     <ClInclude Include="RemoveTesterLinearINT.h" />
     <ClInclude Include="RemoveTesterLinearString.h" />
+    <ClInclude Include="RemoveTesterRNG_INT.h" />
+    <ClInclude Include="RemoveTesterRNG_String.h" />
     <ClInclude Include="TreeTester.h" />
     <ClInclude Include="avlSet.h" />
     <ClInclude Include="heap_monitor.h" />

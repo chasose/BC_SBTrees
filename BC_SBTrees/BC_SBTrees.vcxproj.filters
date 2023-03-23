@@ -13,28 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Linear">
+    <Filter Include="Header Files\TestClasses">
+      <UniqueIdentifier>{b7f13a2f-cfc4-43ea-ae30-7e9a078ff670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TestClasses\Linear">
       <UniqueIdentifier>{5828f2f3-884d-4e33-8e9a-2c8c0b44cdc1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Random">
-      <UniqueIdentifier>{585d4fcc-399c-4e14-b380-52aed8a60c82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Linear\Insert">
+    <Filter Include="Header Files\TestClasses\Linear\Insert">
       <UniqueIdentifier>{7f4b66f3-da91-4586-9f07-e521924283af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Random\Insert">
-      <UniqueIdentifier>{ea1bc3c1-f322-4dba-9b15-85abfe911e19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Linear\Find">
+    <Filter Include="Header Files\TestClasses\Linear\Find">
       <UniqueIdentifier>{5678cf62-a349-41e0-ad5e-bc8755e150b7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Linear\Remove">
+    <Filter Include="Header Files\TestClasses\Linear\Remove">
       <UniqueIdentifier>{26d8e4d3-6c34-4c74-8cdc-4d6dbec7bb49}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Random\Find">
+    <Filter Include="Header Files\Structures">
+      <UniqueIdentifier>{051f808f-0126-491c-b1a2-4d22c6339c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TestClasses\Random">
+      <UniqueIdentifier>{585d4fcc-399c-4e14-b380-52aed8a60c82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TestClasses\Random\Insert">
+      <UniqueIdentifier>{ea1bc3c1-f322-4dba-9b15-85abfe911e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TestClasses\Random\Find">
       <UniqueIdentifier>{118a1460-55f2-44c4-aee4-9a17509d263e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Random\Remove">
+    <Filter Include="Header Files\TestClasses\Random\Remove">
       <UniqueIdentifier>{e0c0272a-14c2-4b97-b234-e9c75f0d288e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -44,15 +50,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="avlSet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="splaySet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sgSet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="heap_monitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -60,28 +57,49 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InsertTesterLinearINT.h">
-      <Filter>Header Files\Linear\Insert</Filter>
+      <Filter>Header Files\TestClasses\Linear\Insert</Filter>
     </ClInclude>
     <ClInclude Include="InsertTesterLinearString.h">
-      <Filter>Header Files\Linear\Insert</Filter>
+      <Filter>Header Files\TestClasses\Linear\Insert</Filter>
     </ClInclude>
     <ClInclude Include="InsertTesterRNG_INT.h">
-      <Filter>Header Files\Random\Insert</Filter>
+      <Filter>Header Files\TestClasses\Random\Insert</Filter>
     </ClInclude>
     <ClInclude Include="InsertTesterRNG_STRING.h">
-      <Filter>Header Files\Random\Insert</Filter>
+      <Filter>Header Files\TestClasses\Random\Insert</Filter>
     </ClInclude>
     <ClInclude Include="FindTesterLinearINT.h">
-      <Filter>Header Files\Linear\Find</Filter>
+      <Filter>Header Files\TestClasses\Linear\Find</Filter>
     </ClInclude>
     <ClInclude Include="FindTesterLinearString.h">
-      <Filter>Header Files\Linear\Find</Filter>
+      <Filter>Header Files\TestClasses\Linear\Find</Filter>
     </ClInclude>
     <ClInclude Include="RemoveTesterLinearINT.h">
-      <Filter>Header Files\Linear\Remove</Filter>
+      <Filter>Header Files\TestClasses\Linear\Remove</Filter>
     </ClInclude>
     <ClInclude Include="RemoveTesterLinearString.h">
-      <Filter>Header Files\Linear\Remove</Filter>
+      <Filter>Header Files\TestClasses\Linear\Remove</Filter>
+    </ClInclude>
+    <ClInclude Include="avlSet.h">
+      <Filter>Header Files\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="sgSet.h">
+      <Filter>Header Files\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="splaySet.h">
+      <Filter>Header Files\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="FindTesterRNG_INT.h">
+      <Filter>Header Files\TestClasses\Random\Find</Filter>
+    </ClInclude>
+    <ClInclude Include="FindTesterRNG_String.h">
+      <Filter>Header Files\TestClasses\Random\Find</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveTesterRNG_INT.h">
+      <Filter>Header Files\TestClasses\Random\Remove</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveTesterRNG_String.h">
+      <Filter>Header Files\TestClasses\Random\Remove</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

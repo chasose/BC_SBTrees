@@ -2,16 +2,17 @@
 #include "TreeTester.h"
 
 template<typename TreeType>
-class RemoveTesterLinearString : public TreeAnalyzer<TreeType>
+class FindTesterRNG_String : public TreeAnalyzer<TreeType>
 {
 public:
-    RemoveTesterLinearString(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name)
+    FindTesterRNG_String(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name)
         : TreeAnalyzer<TreeType>(tree, repNumb, stepSize, stepCount, name) {};
 
     using TreeTester<TreeType>::currentStep_;
     using TreeTester<TreeType>::stepSize_;
     using TreeTester<TreeType>::tree_;
 
+    // Inherited via TreeAnalyzer
     virtual std::vector<typename TreeType::key_type> prepare() override
     {
         std::string s = "a";
@@ -42,6 +43,10 @@ public:
             this->tree_->insert(s, i);
         }
 
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::shuffle(vector_.begin(), vector_.end(), gen);
+
         return vector_;
     }
 
@@ -49,7 +54,7 @@ public:
     {
         for (auto& key : *vector)
         {
-            this->tree_->remove(key);
+            this->tree_->find(key);
         }
 
     }
@@ -58,5 +63,6 @@ public:
     {
         this->tree_->clear();
     }
+
 };
 

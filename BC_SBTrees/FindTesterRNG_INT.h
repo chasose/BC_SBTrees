@@ -2,10 +2,10 @@
 #include "TreeTester.h"
 
 template<typename TreeType>
-class RemoveTesterLinearINT : public TreeAnalyzer<TreeType>
+class FindTesterRNG_INT : public TreeAnalyzer<TreeType>
 {
 public:
-    RemoveTesterLinearINT(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name)
+    FindTesterRNG_INT(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name)
         : TreeAnalyzer<TreeType>(tree, repNumb, stepSize, stepCount, name) {};
 
     using TreeTester<TreeType>::currentStep_;
@@ -17,11 +17,16 @@ public:
     {
         std::vector<typename TreeType::key_type> vector_;
 
-        for (int i = 0; i < stepSize_ * currentStep_; i = i + 1)
+        for (int i = stepSize_ * currentStep_; i > 0; i--)
         {
             vector_.push_back(i);
-            this->tree_->insert(i, i + 1);
+            this->tree_->insert(i, i);
         }
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::shuffle(vector_.begin(), vector_.end(), gen);
+
         return vector_;
     }
 
@@ -29,7 +34,7 @@ public:
     {
         for (auto& key : *vector)
         {
-            this->tree_->remove(key);
+            this->tree_->find(key);
         }
 
 
@@ -39,5 +44,6 @@ public:
     {
         this->tree_->clear();
     }
+
 };
 

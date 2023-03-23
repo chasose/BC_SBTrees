@@ -15,6 +15,10 @@
 #include "FindTesterLinearString.h"
 #include "RemoveTesterLinearINT.h"
 #include "RemoveTesterLinearString.h"
+#include "FindTesterRNG_INT.h"
+#include "FindTesterRNG_String.h"
+#include "RemoveTesterRNG_INT.h"
+#include "RemoveTesterRNG_String.h"
 
 using namespace std;
 
