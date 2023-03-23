@@ -50,21 +50,13 @@ class TreeAnalyzer : public TreeTester<TreeType>
 
 
 private:
-	std::vector<typename TreeType::key_type>* vector_ = 0;
-
-	void clearVector() {
-		this->vector_->resize(0);
+	void clearVector(std::vector<typename TreeType::key_type>* vector) {
+		vector->resize(0);
 	};
 
 public:
 	TreeAnalyzer(TreeType* tree, int repNumb, int stepSize, int stepCount, std::string name) 
-		: TreeTester<TreeType>(tree, repNumb, stepSize, stepCount, name) 
-	{
-		this->vector_ = new std::vector<typename TreeType::key_type>();
-	};
-	~TreeAnalyzer() {
-		delete this->vector_;
-	}
+		: TreeTester<TreeType>(tree, repNumb, stepSize, stepCount, name) {};
 	// Inherited via TreeTester
 	using TreeTester<TreeType>::name_;
 	using TreeTester<TreeType>::numberOfReplications_;
@@ -74,15 +66,16 @@ public:
 	
 
 
-	virtual std::vector<typename TreeType::key_type> prepare() = 0;
-	virtual void execute(std::vector<typename TreeType::key_type>* vector) = 0;
+	virtual void prepare(std::vector<typename TreeType::key_type>* vector) = 0;
+	virtual int execute(std::vector<typename TreeType::key_type>* vector) = 0;
 	virtual void clear() = 0;
 	virtual void analyze() override
 	{
 		std::string filename = TreeTester<TreeType>::getName();
-		std::ofstream outputFile(filename);
-		
+		std::ofstream outputFile("CSV_tests/"+filename);
 		int deliverNumber = TreeTester<TreeType>::numberOfReplications_;
+		std::vector<typename TreeType::key_type>* vector_ = new std::vector<typename TreeType::key_type>();
+
 		if (outputFile.is_open()) {
 			for (int i = 0; i < stepCount_; i++)
 			{
@@ -91,13 +84,12 @@ public:
 				while (repNum > 0)
 				{
 					this->clear();
-					*this->vector_ = this->prepare();
+					this->prepare(vector_);
 					auto startTime = std::chrono::high_resolution_clock::now();
-					this->execute(this->vector_);
+					this->execute(vector_);
 					auto endTime = std::chrono::high_resolution_clock::now();
-					
 					this->clear();
-					this->clearVector();
+					this->clearVector(vector_);
 					auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
 					replicationsDuration += duration;
 				
@@ -105,13 +97,16 @@ public:
 
 				}
 				std::cout << i << std::endl;
-				outputFile << TreeTester<TreeType>::currentStep_ * TreeTester<TreeType>::stepSize_ << ";" << replicationsDuration.count()/deliverNumber << std::endl;
+				outputFile << TreeTester<TreeType>::currentStep_ * TreeTester<TreeType>::stepSize_ << ";" << (replicationsDuration.count()/deliverNumber) <<";"
+					<< (double)(replicationsDuration.count() / deliverNumber) / (double)(TreeTester<TreeType>::currentStep_ * TreeTester<TreeType>::stepSize_ )<< std::endl;
 				currentStep_++;
 			}
 		}
 		else {
 			std::cout << "Error opening file: " << filename << std::endl;
 		}
+
+		delete vector_;
 	}
 
 };

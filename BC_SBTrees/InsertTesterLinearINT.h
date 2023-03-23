@@ -15,18 +15,16 @@ public:
     using TreeTester<TreeType>::tree_;
 
     // Inherited via TreeAnalyzer
-    virtual std::vector<typename TreeType::key_type> prepare() override
-    {
-        std::vector<typename TreeType::key_type> vector_;
-        
+    virtual void prepare(std::vector<typename TreeType::key_type>* vector_) override
+    {      
         for (int i = 0; i < stepSize_ * currentStep_; i = i + 1)
         {
-           vector_.push_back(i);
+           vector_->push_back(i);
         }
-        return vector_;
+        
     }
 
-    virtual void execute(std::vector<typename TreeType::key_type>* vector) override
+    virtual int execute(std::vector<typename TreeType::key_type>* vector) override
     {
         int i = 0;
         for (auto& key : *vector)
@@ -34,8 +32,7 @@ public:
             this->tree_->insert(key, i);
             i++;
         }
-
-
+        return 0;
     }
 
     virtual void clear() override

@@ -26,17 +26,31 @@ int main() {
     initHeapMonitor();
     //LINEAR
     //sgSET
-    /*sgSet<string, int>* sg_treeS = new sgSet<string, int>();
+    sgSet<string, int>* sg_treeS = new sgSet<string, int>();
     sgSet<int, int>* sg_treeI = new sgSet<int, int>();
-    InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 100, "pokusSGString_release.csv");
-    InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "pokusSGINT_release.csv");
-    testerSGI->analyze();
+    InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 1000, "I-L-SG-String.csv");
+    InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 1000, "I-L-SG-Int.csv");
+    /*testerSGI->analyze();
     testerSGS->analyze();*/
 
-    //delete sg_treeS;
-    //delete sg_treeI;
-    //delete testerSGI;
-    //delete testerSGS;
+    FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 1000, "F-L-SG-String1.csv");
+    FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100,1000, "F-L-SG-Int.csv");
+    /*testerSGSFIND->analyze();*/
+    testerSGIFIND->analyze();
+
+    RemoveTesterLinearString<sgSet<string, int>>* testerSGSREMOVE = new RemoveTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 1000, "R-L-SG-String.csv");
+    RemoveTesterLinearINT<sgSet<int, int>>* testerSGIREMOVE = new RemoveTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 1000, "R-L-SG-Int.csv");
+    /*testerSGSREMOVE->analyze();
+    testerSGIREMOVE->analyze();*/
+    
+    delete testerSGSREMOVE;
+    delete testerSGIREMOVE;
+    delete testerSGSFIND;
+    delete testerSGIFIND;
+    delete sg_treeS;
+    delete sg_treeI;
+    delete testerSGI;
+    delete testerSGS;
     ////avlSET
     //avlSet<string, int>* avl_treeS = new avlSet<string, int>();
     //avlSet<int, int>* avl_treeI = new avlSet<int, int>();
@@ -117,32 +131,32 @@ int main() {
 
 
     //////////////////////////////////////////////////////////////////////////
-    sgSet<string, int>* sg_treeS = new sgSet<string, int>(0.9);
-    sgSet<int, int>* sg_treeI = new sgSet<int, int>();
-    InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 1, 100, 1000, "INSERT_stringONEREPLICATION.csv");
-    InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "INSERT_int.csv");
-    /*testerSGI->analyze();*/
-    testerSGS->analyze();
+    //sgSet<string, int>* sg_treeS = new sgSet<string, int>(0.9);
+    //sgSet<int, int>* sg_treeI = new sgSet<int, int>();
+    //InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 1, 100, 1000, "INSERT_stringONEREPLICATION.csv");
+    //InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "INSERT_int.csv");
+    ///*testerSGI->analyze();*/
+    //testerSGS->analyze();
 
-    FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 100, "FIND_string.csv");
-    FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "FIND_int.csv");
-    /*testerSGSFIND->analyze();
-    testerSGIFIND->analyze();*/
+    //FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 100, "FIND_string.csv");
+    //FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "FIND_int.csv");
+    ///*testerSGSFIND->analyze();
+    //testerSGIFIND->analyze();*/
 
-    RemoveTesterLinearString<sgSet<string, int>>* testerSGSREMOVE = new RemoveTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 100, "REMOVE_string.csv");
-    RemoveTesterLinearINT<sgSet<int, int>>* testerSGIREMOVE = new RemoveTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "REMOVE_int.csv");
-    /*testerSGSREMOVE->analyze();
-    testerSGIREMOVE->analyze();*/
+    //RemoveTesterLinearString<sgSet<string, int>>* testerSGSREMOVE = new RemoveTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 100, "REMOVE_string.csv");
+    //RemoveTesterLinearINT<sgSet<int, int>>* testerSGIREMOVE = new RemoveTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 100, "REMOVE_int.csv");
+    ///*testerSGSREMOVE->analyze();
+    //testerSGIREMOVE->analyze();*/
 
 
-    delete testerSGSFIND;
-    delete testerSGIFIND;
-    delete testerSGSREMOVE;
-    delete testerSGIREMOVE;
-    delete sg_treeS;
-    delete sg_treeI;
-    delete testerSGI;
-    delete testerSGS;
+    //delete testerSGSFIND;
+    //delete testerSGIFIND;
+    //delete testerSGSREMOVE;
+    //delete testerSGIREMOVE;
+    //delete sg_treeS;
+    //delete sg_treeI;
+    //delete testerSGI;
+    //delete testerSGS;
 
     return 0;
 }

@@ -13,11 +13,10 @@ public:
     using TreeTester<TreeType>::tree_;
 
     // Inherited via TreeAnalyzer
-    virtual std::vector<typename TreeType::key_type> prepare() override
+    virtual std::vector<typename TreeType::key_type> prepare(std::vector<typename TreeType::key_type>* vector_) override
     {
         std::string s = "a";
         int iterations = stepSize_ * currentStep_;
-        std::vector<typename TreeType::key_type> vector_;
         for (int i = 0; i < iterations; ++i)
         {
             // increment the string
@@ -39,24 +38,23 @@ public:
                 s = "a" + s;
             }
 
-            vector_.push_back(s);
+            vector_->push_back(s);
             this->tree_->insert(s, i);
         }
 
         std::random_device rd;
         std::mt19937 gen(rd());
-        std::shuffle(vector_.begin(), vector_.end(), gen);
+        std::shuffle(vector_->begin(), vector_->end(), gen);
 
-        return vector_;
     }
 
-    virtual void execute(std::vector<typename TreeType::key_type>* vector) override
+    virtual int execute(std::vector<typename TreeType::key_type>* vector) override
     {
         for (auto& key : *vector)
         {
             this->tree_->find(key);
         }
-
+        return 0;
     }
 
     virtual void clear() override
