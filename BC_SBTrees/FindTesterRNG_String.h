@@ -13,7 +13,7 @@ public:
     using TreeTester<TreeType>::tree_;
 
     // Inherited via TreeAnalyzer
-    virtual std::vector<typename TreeType::key_type> prepare(std::vector<typename TreeType::key_type>* vector_) override
+    virtual void prepare(std::vector<typename TreeType::key_type>* vector_) override
     {
         std::string s = "a";
         int iterations = stepSize_ * currentStep_;

@@ -87,7 +87,7 @@ void avlSet<Key, Data>::remove(Key key) {
     {
         tree_->erase(*node); 
         delete node;
-        tree_->rebalance();
+        /*tree_->rebalance();*/
     }
 }
 

@@ -30,12 +30,13 @@ public:
 
     virtual int execute(std::vector<typename TreeType::key_type>* vector) override
     {
-        for (auto& key : *vector)
-        {
-            this->tree_->find(key);
+        auto sum = 0;
+        for (int key : *vector)
+        {    
+            auto data = *this->tree_->find(key);
+            sum += data.value;
         }
-
-        return 0;
+        return sum;
     }
 
     virtual void clear() override

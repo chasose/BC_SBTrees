@@ -27,7 +27,7 @@ public:
         auto sum = 0;
         for (int key : *vector)
         {    
-            my_node_sg<int,int> data = *this->tree_->find(key);
+            auto data = *this->tree_->find(key);
             sum += data.value;
         }
         return sum;
