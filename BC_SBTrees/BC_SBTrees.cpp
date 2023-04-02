@@ -33,7 +33,7 @@ int main() {
     testerSGI->analyze();
     testerSGS->analyze();
 
-    FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/F-L-SG-String1.csv");
+    FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/F-L-SG-String.csv");
     FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/F-L-SG-Int.csv");
     testerSGSFIND->analyze();
     testerSGIFIND->analyze();
