@@ -156,6 +156,7 @@
     <ClInclude Include="InsertTesterLinearString.h" />
     <ClInclude Include="InsertTesterRNG_INT.h" />
     <ClInclude Include="InsertTesterRNG_STRING.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="RemoveTesterLinearINT.h" />
     <ClInclude Include="RemoveTesterLinearString.h" />
     <ClInclude Include="RemoveTesterRNG_INT.h" />

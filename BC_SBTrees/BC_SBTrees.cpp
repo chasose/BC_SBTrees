@@ -19,6 +19,7 @@
 #include "FindTesterRNG_String.h"
 #include "RemoveTesterRNG_INT.h"
 #include "RemoveTesterRNG_String.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -26,58 +27,58 @@ int main() {
     initHeapMonitor();
     //LINEAR
     //sgSET
-    sgSet<string, int>* sg_treeS = new sgSet<string, int>();
-    sgSet<int, int>* sg_treeI = new sgSet<int, int>();
-    InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100,750, "Linear/sg_tree/I-L-SG-String.csv");
-    InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/I-L-SG-Int.csv");
-    testerSGI->analyze();
-    testerSGS->analyze();
+    //sgSet<string, int>* sg_treeS = new sgSet<string, int>();
+    //sgSet<int, int>* sg_treeI = new sgSet<int, int>();
+    //InsertTesterLinearString<sgSet<string, int>>* testerSGS = new InsertTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100,750, "Linear/sg_tree/I-L-SG-String.csv");
+    //InsertTesterLinearINT<sgSet<int, int>>* testerSGI = new InsertTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/I-L-SG-Int.csv");
+    //testerSGI->analyze();
+    //testerSGS->analyze();
 
-    FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/F-L-SG-String.csv");
-    FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/F-L-SG-Int.csv");
-    testerSGSFIND->analyze();
-    testerSGIFIND->analyze();
+    //FindTesterLinearString<sgSet<string, int>>* testerSGSFIND = new FindTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/F-L-SG-String.csv");
+    //FindTesterLinearINT<sgSet<int, int>>* testerSGIFIND = new FindTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/F-L-SG-Int.csv");
+    //testerSGSFIND->analyze();
+    //testerSGIFIND->analyze();
 
-    RemoveTesterLinearString<sgSet<string, int>>* testerSGSREMOVE = new RemoveTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/R-L-SG-String.csv");
-    RemoveTesterLinearINT<sgSet<int, int>>* testerSGIREMOVE = new RemoveTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/R-L-SG-Int.csv");
-    testerSGSREMOVE->analyze();
-    testerSGIREMOVE->analyze();
-    
-    delete testerSGSREMOVE;
-    delete testerSGIREMOVE;
-    delete testerSGSFIND;
-    delete testerSGIFIND;
-    delete sg_treeS;
-    delete sg_treeI;
-    delete testerSGI;
-    delete testerSGS;
-     
-    //RNG
-    sgSet<string, int>* sg_treeSt = new sgSet<string, int>();
-    sgSet<int, int>* sg_treeIt = new sgSet<int, int>();
-    InsertTesterRNG_STRING<sgSet<string, int>>* testerSGSt = new InsertTesterRNG_STRING<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/I-R-SG-String.csv");
-    InsertTesterRNG_INT<sgSet<int, int>>* testerSGIt = new InsertTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100, 750, "RNG/sg_tree/I-R-SG-Int.csv");
-    testerSGIt->analyze();
-    testerSGSt->analyze();
+    //RemoveTesterLinearString<sgSet<string, int>>* testerSGSREMOVE = new RemoveTesterLinearString<sgSet<string, int>>(sg_treeS, 50, 100, 750, "Linear/sg_tree/R-L-SG-String.csv");
+    //RemoveTesterLinearINT<sgSet<int, int>>* testerSGIREMOVE = new RemoveTesterLinearINT<sgSet<int, int>>(sg_treeI, 50, 100, 750, "Linear/sg_tree/R-L-SG-Int.csv");
+    //testerSGSREMOVE->analyze();
+    //testerSGIREMOVE->analyze();
+    //
+    //delete testerSGSREMOVE;
+    //delete testerSGIREMOVE;
+    //delete testerSGSFIND;
+    //delete testerSGIFIND;
+    //delete sg_treeS;
+    //delete sg_treeI;
+    //delete testerSGI;
+    //delete testerSGS;
+    // 
+    ////RNG
+    //sgSet<string, int>* sg_treeSt = new sgSet<string, int>();
+    //sgSet<int, int>* sg_treeIt = new sgSet<int, int>();
+    //InsertTesterRNG_STRING<sgSet<string, int>>* testerSGSt = new InsertTesterRNG_STRING<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/I-R-SG-String.csv");
+    //InsertTesterRNG_INT<sgSet<int, int>>* testerSGIt = new InsertTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100, 750, "RNG/sg_tree/I-R-SG-Int.csv");
+    //testerSGIt->analyze();
+    //testerSGSt->analyze();
 
-    FindTesterRNG_String<sgSet<string, int>>* testerSGSFINDt = new FindTesterRNG_String<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/F-R-SG-String.csv");
-    FindTesterRNG_INT<sgSet<int, int>>* testerSGIFINDt = new FindTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100,750, "RNG/sg_tree/F-R-SG-Int.csv");
-    testerSGSFINDt->analyze();
-    testerSGIFINDt->analyze();
+    //FindTesterRNG_String<sgSet<string, int>>* testerSGSFINDt = new FindTesterRNG_String<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/F-R-SG-String.csv");
+    //FindTesterRNG_INT<sgSet<int, int>>* testerSGIFINDt = new FindTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100,750, "RNG/sg_tree/F-R-SG-Int.csv");
+    //testerSGSFINDt->analyze();
+    //testerSGIFINDt->analyze();
 
-    RemoveTesterRNG_String<sgSet<string, int>>* testerSGSREMOVEt = new RemoveTesterRNG_String<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/R-R-SG-String.csv");
-    RemoveTesterRNG_INT<sgSet<int, int>>* testerSGIREMOVEt = new RemoveTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100, 750, "RNG/sg_tree/R-R-SG-Int.csv");
-    testerSGSREMOVEt->analyze();
-    testerSGIREMOVEt->analyze();
-    
-    delete testerSGSREMOVEt;
-    delete testerSGIREMOVEt;
-    delete testerSGSFINDt;
-    delete testerSGIFINDt;
-    delete sg_treeSt;
-    delete sg_treeIt;
-    delete testerSGIt;
-    delete testerSGSt;
+    //RemoveTesterRNG_String<sgSet<string, int>>* testerSGSREMOVEt = new RemoveTesterRNG_String<sgSet<string, int>>(sg_treeSt, 50, 100, 750, "RNG/sg_tree/R-R-SG-String.csv");
+    //RemoveTesterRNG_INT<sgSet<int, int>>* testerSGIREMOVEt = new RemoveTesterRNG_INT<sgSet<int, int>>(sg_treeIt, 50, 100, 750, "RNG/sg_tree/R-R-SG-Int.csv");
+    //testerSGSREMOVEt->analyze();
+    //testerSGIREMOVEt->analyze();
+    //
+    //delete testerSGSREMOVEt;
+    //delete testerSGIREMOVEt;
+    //delete testerSGSFINDt;
+    //delete testerSGIFINDt;
+    //delete sg_treeSt;
+    //delete sg_treeIt;
+    //delete testerSGIt;
+    //delete testerSGSt;
     
     
 
@@ -201,6 +202,60 @@ int main() {
     //delete testerSPLAYIs;
     //delete testerSPLAYSs;
 
+    //MAP
+    //LINEAR
+    Map<string, int>* map_s = new Map<string, int>();
+    Map<int, int>* map_i = new Map<int, int>();
 
+    InsertTesterLinearString<Map<string, int>>* testerMAPS = new InsertTesterLinearString<Map<string, int>>(map_s, 50, 100,750, "Linear/MAP/I-L-MAP-String.csv");
+    InsertTesterLinearINT<Map<int, int>>* testerMAPI = new InsertTesterLinearINT<Map<int, int>>(map_i, 50, 100, 750, "Linear/MAP/I-L-MAP-Int.csv");
+    testerMAPI->analyze();
+    /*testerMAPS->analyze();*/
+
+    FindTesterLinearString<Map<string, int>>* testerMAPSFIND = new FindTesterLinearString<Map<string, int>>(map_s, 50, 100, 750, "Linear/MAP/F-L-MAP-String.csv");
+    FindTesterLinearINT<Map<int, int>>* testerMAPIFIND = new FindTesterLinearINT<Map<int, int>>(map_i, 50, 100, 750, "Linear/MAP/F-L-MAP-Int.csv");
+    testerMAPIFIND->analyze();
+    /*testerMAPSFIND->analyze();*/
+
+    RemoveTesterLinearString<Map<string, int>>* testerMAPSREMOVE = new RemoveTesterLinearString<Map<string, int>>(map_s, 50, 100, 750, "Linear/MAP/R-L-MAP-String.csv");
+    RemoveTesterLinearINT<Map<int, int>>* testerMAPIREMOVE = new RemoveTesterLinearINT<Map<int, int>>(map_i, 50, 100, 750, "Linear/MAP/R-L-MAP-Int.csv");
+    /*testerMAPIREMOVE->analyze();
+    testerMAPSREMOVE->analyze();*/
+    
+    delete testerMAPS;
+    delete testerMAPI;
+    delete testerMAPSFIND;
+    delete testerMAPIFIND;
+    delete map_s;
+    delete map_i;
+    delete testerMAPSREMOVE;
+    delete testerMAPIREMOVE;
+
+    ////RNG
+    Map<string, int>* map_sR = new Map<string, int>();
+    Map<int, int>* map_iR = new Map<int, int>();
+    InsertTesterRNG_STRING<Map<string, int>>* testerMAPSr = new InsertTesterRNG_STRING<Map<string, int>>(map_sR, 50, 100, 750, "RNG/MAP/I-R-MAP-String.csv");
+    InsertTesterRNG_INT<Map<int, int>>* testerMAPIr = new InsertTesterRNG_INT<Map<int, int>>(map_iR, 50, 100, 750, "RNG/MAP/I-R-MAP-Int.csv");
+    testerMAPIr->analyze();
+    testerMAPSr->analyze();
+
+    FindTesterRNG_String<Map<string, int>>* testerMAPSFINDr = new FindTesterRNG_String<Map<string, int>>(map_sR, 50, 100, 750, "RNG/MAP/F-R-MAP-String1.csv");
+    FindTesterRNG_INT<Map<int, int>>* testerMAPIFINDr = new FindTesterRNG_INT<Map<int, int>>(map_iR, 50, 100, 750, "RNG/MAP/F-R-MAP-Int.csv");
+    testerMAPIFINDr->analyze();
+    testerMAPSFINDr->analyze();
+
+    RemoveTesterRNG_String<Map<string, int>>* testerMAPSREMOVEr = new RemoveTesterRNG_String<Map<string, int>>(map_sR, 50, 100, 750, "RNG/MAP/R-R-MAP-String.csv");
+    RemoveTesterRNG_INT<Map<int, int>>* testerMAPIREMOVEr = new RemoveTesterRNG_INT<Map<int, int>>(map_iR, 50, 100, 750, "RNG/MAP/R-R-MAP-Int.csv");
+    testerMAPIREMOVEr->analyze();
+    testerMAPSREMOVEr->analyze();
+
+    delete testerMAPSFINDr;
+    delete testerMAPIFINDr;
+    delete testerMAPSREMOVEr;
+    delete testerMAPIREMOVEr;
+    delete map_sR;
+    delete map_iR;
+    delete testerMAPIr;
+    delete testerMAPSr;
     return 0;
 }

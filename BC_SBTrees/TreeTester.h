@@ -72,7 +72,7 @@ public:
 	virtual void analyze() override
 	{
 		std::string filename = TreeTester<TreeType>::getName();
-		std::ofstream outputFile("CSV_tests/"+filename);
+		std::ofstream outputFile("CSV_tests/MVSC/"+filename);
 		int deliverNumber = TreeTester<TreeType>::numberOfReplications_;
 		std::vector<typename TreeType::key_type>* vector_ = new std::vector<typename TreeType::key_type>();
 

@@ -8,7 +8,8 @@ template <typename Key, typename Data>
 struct my_node_avl : public avl_set_base_hook<> {
     Key value;
     Data data;
-    my_node_avl(Key v, Data data) : value(v), data(data) {}
+    Data second;
+    my_node_avl(Key v, Data data) : value(v), data(data), second(data) {}
 
 };
 
@@ -87,7 +88,7 @@ void avlSet<Key, Data>::remove(Key key) {
     {
         tree_->erase(*node); 
         delete node;
-        /*tree_->rebalance();*/
+        
     }
 }
 

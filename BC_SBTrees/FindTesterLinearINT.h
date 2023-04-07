@@ -24,12 +24,16 @@ public:
 
     virtual int execute(std::vector<typename TreeType::key_type>* vector) override
     {
+  
         auto sum = 0;
+
         for (int key : *vector)
-        {    
-            auto data = *this->tree_->find(key);
-            sum += data.value;
+        {
+            auto result = *this->tree_->find(key);
+            auto data = result.second;
+            sum += data;
         }
+
         return sum;
     }
 

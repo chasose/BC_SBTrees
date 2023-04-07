@@ -101,5 +101,8 @@
     <ClInclude Include="RemoveTesterRNG_String.h">
       <Filter>Header Files\TestClasses\Random\Remove</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files\Structures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,8 @@ template <typename Key, typename Data>
 struct my_node_splay : public bs_set_base_hook<> {
     Key value;
     Data data;
-    my_node_splay(Key v, Data data) : value(v), data(data) {}
+    Data second;
+    my_node_splay(Key v, Data data) : value(v), data(data), second(data) {}
 };
 
 template <typename Key, typename Data>
